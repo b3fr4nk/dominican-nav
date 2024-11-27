@@ -5,24 +5,25 @@ def parseOSM(path):
     with open(path, "rb") as osm_fn:
         map_osm = xtd.parse(osm_fn)['osm']
 
-    # parse bounds for map
+
+    # Parsing bounds from .OSM file
     ymax = map_osm['bounds']['@maxlat']
-    ymin = map_osm['bounds']['@maxlat']
+    ymin = map_osm['bounds']['@minlat']
     xmax = map_osm['bounds']['@maxlon']
     xmin = map_osm['bounds']['@minlon']
     parsed_bounds = [xmin, xmax, ymin, ymax]
 
-    #parsing node/vertex
+    # Parsing Node
     Node = map_osm['node']
-    Nnodes=len(Node)
-    NodeId = [0]*Nnodes
-    coords = []
+    Nnodes = len(Node)
+    Nodeid = [0]*Nnodes
+    xy = []
     for i in range(Nnodes):
-        NodeId[i] = float(Node[i]['@id'])
+        Nodeid[i] = float(Node[i]['@id'])
         x = float(Node[i]['@lat'])
         y = float(Node[i]['@lon'])
-        coords.append([x, y])
-    parsed_node = {'id':NodeId, 'coords':coords}
+        xy.append([x, y])
+    parsed_node = {'id': Nodeid, 'xy': xy}
 
     # Parsing Ways
     Way = map_osm['way']
@@ -66,4 +67,4 @@ def parseOSM(path):
         'attributes': map_osm.keys()
     }
 
-    return parsed_osm
+    return (parsed_osm, Nnodes)
