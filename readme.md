@@ -9,7 +9,7 @@ Dominican University of California has a beautiful campus but navigating it can 
 
 1. Enter the starting node number in the terminal
 
-![Alt text](https://photos.app.goo.gl/dHuaYiEri4FdQqno9 "Optional Title")
+![Alt text](https://drive.google.com/file/d/1MlWa0gWvdvLaN6BnJbVO7Z_VxBKTaGWm/view?usp=sharing "Optional Title")
 
 1. Enter the destination node number in the terminal (Note due to poor Open Street Maps data for Dominican some starting/destination node combos don't work)
 
